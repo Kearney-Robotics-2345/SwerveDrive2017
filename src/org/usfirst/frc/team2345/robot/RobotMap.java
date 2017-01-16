@@ -27,9 +27,9 @@ public class RobotMap {
 	public static CANTalon backLeftDrive = new CANTalon(2);
 
 	public static VictorSP frontLeftTurn = new VictorSP(0);
-	public static VictorSP backLeftTurn = new VictorSP(1);
+	public static VictorSP backLeftTurn = new VictorSP(4);
 	public static VictorSP frontRightTurn = new VictorSP(2);
-	public static VictorSP backRightTurn = new VictorSP(3);
+	public static VictorSP backRightTurn = new VictorSP(6);
 
 	public static Encoder frontLeftEnc = new Encoder(0, 1);
 	public static Encoder frontRightEnc = new Encoder(2, 3);

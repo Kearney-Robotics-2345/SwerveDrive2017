@@ -1,11 +1,13 @@
 //FRC Team-2345
-//Kearney Robotcs -- Animal Control
+//Kearney Robotics -- Animal Control
 //Kearney Robotics - Animal Control
-//RecycleRush 2015
+//Steampunk 2017
 
 package org.usfirst.frc.team2345.robot.commands;
 
 import org.usfirst.frc.team2345.robot.OI;
+import org.usfirst.frc.team2345.robot.Robot;
+
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.VictorSP;
@@ -50,13 +52,14 @@ public class swerveDrive extends Command {
     Encoder downRightEnc = RobotMap.backRightEnc;
     Encoder downLeftEnc = RobotMap.backLeftEnc;
  
-    //Math to determine hypotenues of frame
+    //Math to determine hypotenuse of frame
     static double l = 14.375;//19; //(wheelbase, inches)
     
     static double w = 25.75;//32; //(trackwidth, inches)
     double r = Math.sqrt(l * l + w * w);
 
     public swerveDrive() {
+    	//requires(Robot.driveSystem);
     }
 
     // Called just before this Command runs the first time
