@@ -24,10 +24,10 @@ public class swerveDrive extends Command {
     double dRT;		//Down Right Turn
     double dLT;		//Down Left Turn
     //leftover code. Delete?
-    //double uRTDir;	
-    //double uLTDir;
-    //double dRTDir;
-    //double dLTDir;
+    double uRTDir;	
+    double uLTDir;
+    double dRTDir;
+    double dLTDir;
     // multiplier ratio of encoder ticks to degrees
     double mult = 1.15278;
     boolean commandStatus = false;
