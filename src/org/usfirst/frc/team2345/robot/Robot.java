@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team2345.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2345.robot.commands.swerveDrive;
 import org.usfirst.frc.team2345.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team2345.robot.commands.Autonomous;
+import org.usfirst.frc.team2345.robot.subsystems.driveSystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -21,6 +23,7 @@ import org.usfirst.frc.team2345.robot.subsystems.ExampleSubsystem;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static final driveSystem driveSystem = new org.usfirst.frc.team2345.robot.subsystems.driveSystem();
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -34,7 +37,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		driveCommand = new swerveDrive();
@@ -71,6 +73,7 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
 		driveCommand.cancel();
+		//teleopFunctions.cancel();
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
@@ -79,8 +82,8 @@ public class Robot extends IterativeRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		if (autonomousCommand != null)
-			autonomousCommand.start();
+		
+		autonomousCommand.start();
 	}
 
 	/**
@@ -98,8 +101,8 @@ public class Robot extends IterativeRobot {
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		driveCommand = new swerveDrive();
-		if (autonomousCommand != null)
-			autonomousCommand.cancel();
+		//if (autonomousCommand != null)
+		autonomousCommand.cancel();
 		driveCommand.start();
 	}
 
