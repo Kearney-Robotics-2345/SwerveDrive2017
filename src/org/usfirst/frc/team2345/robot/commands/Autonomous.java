@@ -40,11 +40,18 @@ public class Autonomous extends Command {
     	RobotMap.backRightTurn.set(85);
     	Timer.delay(2.75);
     	
+    	//Stop Spin
+    	RobotMap.frontLeftTurn.set(0);
+    	RobotMap.frontRightTurn.set(0);
+    	RobotMap.backLeftTurn.set(0);
+    	RobotMap.backRightTurn.set(0);
+    	Timer.delay(2.75);
+    	
     	//Move Back
-    	RobotMap.frontLeftDrive.set(-.5);
-    	RobotMap.frontRightDrive.set(-.5);
-    	RobotMap.backLeftDrive.set(-.5);
-    	RobotMap.backRightDrive.set(-.5);    	
+    	RobotMap.frontLeftDrive.set(0.2);
+    	RobotMap.frontRightDrive.set(0.2);
+    	RobotMap.backLeftDrive.set(0.2);
+    	RobotMap.backRightDrive.set(0.2);    	
     	Timer.delay(2.75); 
     	
     	//Stop

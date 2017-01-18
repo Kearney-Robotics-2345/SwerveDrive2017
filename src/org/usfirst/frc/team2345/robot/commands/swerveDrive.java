@@ -6,7 +6,7 @@
 package org.usfirst.frc.team2345.robot.commands;
 
 import org.usfirst.frc.team2345.robot.OI;
-import org.usfirst.frc.team2345.robot.Robot;
+//import org.usfirst.frc.team2345.robot.Robot;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
@@ -121,7 +121,7 @@ public class swerveDrive extends Command {
         
         if(Math.abs(uRE-wA1) < 1) {
         	uRTdr = 0;
-        }else if (Math.abs(uRE - wA1) <= 180){			// if absoulte of (current angle - wanted angle) is less than or equal to 180
+        }else if (Math.abs(uRE - wA1) <= 180){			// if absolute of (current angle - wanted angle) is less than or equal to 180
         	uRTdr = ((uRE -wA1) < 0) ? -1 : 1;		//Direction = (if (current angle - wanted angle) is less than 0) true: - False: +
         }else if(Math.abs(uRE - wA1) > 180){		
         	uRTdr = ((uRE -wA1) < 0) ? 1 : -1;
@@ -177,16 +177,14 @@ public class swerveDrive extends Command {
         }else{
         	dRTdr = 0;
         }
-        
-        double rampmod = OI.stick.getRawButton(3) ? .5 : 1;
-        double rampmodX = OI.schtick.getRawButton(3) ? .25 : 1;
-        double throttle = (OI.stick.getZ() * -0.5) + 0.9;
+        //Changed throttle so the + 0.1 was + 0.9 to reduce power ----tmd2017
+        double throttle = (OI.stick.getZ() * -0.5) + 0.1;
         
         // I added a 0.7 to slow down the robot, as it was discovered that at full power, the robot would tip over.
-        frontLeftDrive.set(wheelSpeedTwo * 0.7 * rampmod * rampmodX * throttle); 
-        frontRightDrive.set(wheelSpeedOne * 0.7 * rampmod * rampmodX * throttle);
-        backLeftDrive.set(wheelSpeedThree * 0.7 * rampmod * rampmodX * throttle);
-        backRightDrive.set(wheelSpeedFour * 0.7 * rampmod * rampmodX * throttle);
+        frontLeftDrive.set(wheelSpeedTwo * 0.7 * throttle); 
+        frontRightDrive.set(wheelSpeedOne * 0.7 * throttle);
+        backLeftDrive.set(wheelSpeedThree * 0.7 * throttle);
+        backRightDrive.set(wheelSpeedFour * 0.7 * throttle);
         
         // This displays inputs and outputs on the Dashboard for troubleshooting purposes
         SmartDashboard.putNumber("uL", (double) frontLeftEnc.get());
@@ -231,7 +229,7 @@ public class swerveDrive extends Command {
         SmartDashboard.putNumber("dLTC", (double) dLTC);
         SmartDashboard.putNumber("dRTC", (double) dRTC);
 
-        commandStatus = true;
+        //commandStatus = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()
