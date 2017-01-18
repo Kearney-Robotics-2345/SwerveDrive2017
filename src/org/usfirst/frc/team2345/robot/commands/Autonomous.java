@@ -2,6 +2,7 @@ package org.usfirst.frc.team2345.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+import org.usfirst.frc.team2345.robot.OI;
 import org.usfirst.frc.team2345.robot.Robot;
 
 import edu.wpi.first.wpilibj.Encoder;
