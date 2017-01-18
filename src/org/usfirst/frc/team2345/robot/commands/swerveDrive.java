@@ -33,24 +33,24 @@ public class swerveDrive extends Command {
     boolean commandStatus = false;
 
     //enabling all the encoders
-    CANTalon upLeftDrive = RobotMap.frontLeftDrive;
-    CANTalon upRightDrive = RobotMap.frontRightDrive;
-    CANTalon downLeftDrive = RobotMap.backLeftDrive;
-    CANTalon downRightDrive = RobotMap.backRightDrive;
+    CANTalon frontLeftDrive = RobotMap.frontLeftDrive;
+    CANTalon frontRightDrive = RobotMap.frontRightDrive;
+    CANTalon backLeftDrive = RobotMap.backLeftDrive;
+    CANTalon backRightDrive = RobotMap.backRightDrive;
 
-    VictorSP upLeftTurn = RobotMap.frontLeftTurn;
-    VictorSP upRightTurn = RobotMap.frontRightTurn;
-    VictorSP downLeftTurn = RobotMap.backLeftTurn;
-    VictorSP downRightTurn = RobotMap.backRightTurn;
+    VictorSP frontLeftTurn = RobotMap.frontLeftTurn;
+    VictorSP frontRightTurn = RobotMap.frontRightTurn;
+    VictorSP backLeftTurn = RobotMap.backLeftTurn;
+    VictorSP backRightTurn = RobotMap.backRightTurn;
 
     //all joystick code
     Joystick stick = OI.stick;		//Enables joystick 1
     Joystick schtick = OI.schtick;	//Enables joystick 2
     //calls encoders from Robot Map
-    Encoder upRightEnc = RobotMap.frontRightEnc;
-    Encoder upLeftEnc = RobotMap.frontLeftEnc;
-    Encoder downRightEnc = RobotMap.backRightEnc;
-    Encoder downLeftEnc = RobotMap.backLeftEnc;
+    Encoder frontRightEnc = RobotMap.frontRightEnc;
+    Encoder frontLeftEnc = RobotMap.frontLeftEnc;
+    Encoder backRightEnc = RobotMap.backRightEnc;
+    Encoder backLeftEnc = RobotMap.backLeftEnc;
  
     //Math to determine hypotenuse of frame
     static double l = 14.375;//19; //(wheelbase, inches)
@@ -71,16 +71,16 @@ public class swerveDrive extends Command {
     	//if (auto = true) {
         
     	// used to change encoder ticks to degrees
-    	double upRightEncoder = (upRightEnc.get() / mult);
-    	double upLeftEncoder = (upLeftEnc.get() / mult);
-    	double downRightEncoder = (downRightEnc.get() / mult);
-    	double downLeftEncoder = (downLeftEnc.get() / mult);
+    	double frontRightEncoder = (frontRightEnc.get() / mult);
+    	double frontLeftEncoder = (frontLeftEnc.get() / mult);
+    	double backRightEncoder = (backRightEnc.get() / mult);
+    	double backLeftEncoder = (backLeftEnc.get() / mult);
     
     	//fixes the problem of negative ticks on the encoder converting to inverted degrees(-1* translates to 359* opposed to -1* before)
-    	double uRE = (upRightEncoder < 0) ? 360 - Math.abs(upRightEncoder % 360) : upRightEncoder % 360;
-    	double uLE = (upLeftEncoder < 0) ? 360 - Math.abs(upLeftEncoder % 360) : upLeftEncoder % 360; //upLeftEncoder%= 360;
-    	double dLE = (downLeftEncoder < 0) ? 360 - Math.abs(downLeftEncoder % 360) : downLeftEncoder % 360; //downLeftEncoder %= 360;
-    	double dRE = (downRightEncoder < 0) ? 360 - Math.abs(downRightEncoder % 360) : downRightEncoder % 360; //downRightEncoder %= 360;
+    	double uRE = (frontRightEncoder < 0) ? 360 - Math.abs(frontRightEncoder % 360) : frontRightEncoder % 360;
+    	double uLE = (frontLeftEncoder < 0) ? 360 - Math.abs(frontLeftEncoder % 360) : frontLeftEncoder % 360; //frontLeftEncoder%= 360;
+    	double dLE = (backLeftEncoder < 0) ? 360 - Math.abs(backLeftEncoder % 360) : backLeftEncoder % 360; //backLeftEncoder %= 360;
+    	double dRE = (backRightEncoder < 0) ? 360 - Math.abs(backRightEncoder % 360) : backRightEncoder % 360; //backRightEncoder %= 360;
     	
     	
     	
@@ -183,16 +183,16 @@ public class swerveDrive extends Command {
         double throttle = (OI.stick.getZ() * -0.5) + 0.9;
         
         // I added a 0.7 to slow down the robot, as it was discovered that at full power, the robot would tip over.
-        upLeftDrive.set(wheelSpeedTwo * 0.7 * rampmod * rampmodX * throttle); 
-        upRightDrive.set(wheelSpeedOne * 0.7 * rampmod * rampmodX * throttle);
-        downLeftDrive.set(wheelSpeedThree * 0.7 * rampmod * rampmodX * throttle);
-        downRightDrive.set(wheelSpeedFour * 0.7 * rampmod * rampmodX * throttle);
+        frontLeftDrive.set(wheelSpeedTwo * 0.7 * rampmod * rampmodX * throttle); 
+        frontRightDrive.set(wheelSpeedOne * 0.7 * rampmod * rampmodX * throttle);
+        backLeftDrive.set(wheelSpeedThree * 0.7 * rampmod * rampmodX * throttle);
+        backRightDrive.set(wheelSpeedFour * 0.7 * rampmod * rampmodX * throttle);
         
         // This displays inputs and outputs on the Dashboard for troubleshooting purposes
-        SmartDashboard.putNumber("uL", (double) upLeftEnc.get());
-        SmartDashboard.putNumber("uR", (double) upRightEnc.get());
-        SmartDashboard.putNumber("dL", (double) downLeftEnc.get());
-        SmartDashboard.putNumber("dR", (double) downRightEnc.get());
+        SmartDashboard.putNumber("uL", (double) frontLeftEnc.get());
+        SmartDashboard.putNumber("uR", (double) frontRightEnc.get());
+        SmartDashboard.putNumber("dL", (double) backLeftEnc.get());
+        SmartDashboard.putNumber("dR", (double) backRightEnc.get());
         SmartDashboard.putNumber("wS1", (double) wheelSpeedOne);
         SmartDashboard.putNumber("wS2", (double) wheelSpeedTwo);
         SmartDashboard.putNumber("wS3", (double) wheelSpeedThree);
@@ -203,10 +203,10 @@ public class swerveDrive extends Command {
         SmartDashboard.putNumber("wA4", (double) wheelAngleFour);
         
         //Test that Mod is working
-        SmartDashboard.putNumber("uLe", (double) upLeftEncoder);
-        SmartDashboard.putNumber("uRe", (double) upRightEncoder);
-        SmartDashboard.putNumber("dLe", (double) downLeftEncoder);
-        SmartDashboard.putNumber("dRe", (double) downRightEncoder);
+        SmartDashboard.putNumber("uLe", (double) frontLeftEncoder);
+        SmartDashboard.putNumber("uRe", (double) frontRightEncoder);
+        SmartDashboard.putNumber("dLe", (double) backLeftEncoder);
+        SmartDashboard.putNumber("dRe", (double) backRightEncoder);
         
         //exponential decrease of motor input based on distance from wanted degree
         double uRT = (Math.abs(uRE - wA1) > 80) ? 0.7 : (Math.abs(uRE - wA1)) / 70;
@@ -215,10 +215,10 @@ public class swerveDrive extends Command {
         double dRT = (Math.abs(dRE - wA4) > 80) ? 0.7 : (Math.abs(dRE - wA4)) / 70;
 
         //takes motor power and mods from lesser angle code
-        upRightTurn.set(uRT * uRTdr);
-        upLeftTurn.set(uLT * uLTdr);
-        downLeftTurn.set(dLT * dLTdr);
-        downRightTurn.set(dRT * dRTdr);
+        frontRightTurn.set(uRT * uRTdr);
+        frontLeftTurn.set(uLT * uLTdr);
+        backLeftTurn.set(dLT * dLTdr);
+        backRightTurn.set(dRT * dRTdr);
         
         //DEBUGGING (yay)
         double uRTC = uRT * uRTdr;

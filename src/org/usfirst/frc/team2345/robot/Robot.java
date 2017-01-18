@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team2345.robot.commands.ExampleCommand;
+//import org.usfirst.frc.team2345.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2345.robot.commands.swerveDrive;
 import org.usfirst.frc.team2345.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2345.robot.commands.Autonomous;
-import org.usfirst.frc.team2345.robot.subsystems.driveSystem;
+//import org.usfirst.frc.team2345.robot.subsystems.driveSystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,7 +23,7 @@ import org.usfirst.frc.team2345.robot.subsystems.driveSystem;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static final driveSystem driveSystem = new org.usfirst.frc.team2345.robot.subsystems.driveSystem();
+	//public static final driveSystem driveSystem = new org.usfirst.frc.team2345.robot.subsystems.driveSystem();
 	public static OI oi;
 
 	Command autonomousCommand;
@@ -40,6 +40,7 @@ public class Robot extends IterativeRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		driveCommand = new swerveDrive();
+		autonomousCommand = new Autonomous();
 		//teleopFunctions = new teleopFunctions();
 	}
 
@@ -71,8 +72,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
-		driveCommand.cancel();
+		autonomousCommand = new Autonomous();
 		//teleopFunctions.cancel();
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -82,7 +82,9 @@ public class Robot extends IterativeRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		
+		if (driveCommand != null) {
+			driveCommand.cancel();
+		}	
 		autonomousCommand.start();
 	}
 
@@ -101,8 +103,9 @@ public class Robot extends IterativeRobot {
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		driveCommand = new swerveDrive();
-		//if (autonomousCommand != null)
-		autonomousCommand.cancel();
+		if (autonomousCommand != null){
+			autonomousCommand.cancel();
+		}
 		driveCommand.start();
 	}
 
