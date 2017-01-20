@@ -1,19 +1,19 @@
 package org.usfirst.frc.team2345.robot.commands;
 
-import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.Joystick;
+
 import org.usfirst.frc.team2345.robot.*;
+
 /**
  *
  */
-public class Shooter extends Command {
-	Joystick stick = OI.stick;
+public class BallPickup extends Command {
 	Joystick schtick = OI.schtick;
-	Servo twister = new Servo(1);
-	VictorSP flywheel = RobotMap.flywheel;
-    public Shooter() {
+	VictorSP pickup = RobotMap.pickup;
+    public BallPickup() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -24,25 +24,12 @@ public class Shooter extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
-    	boolean settwister = OI.stick.getRawButton(1);
-    	
-    	if (settwister == true) {
-    		//This will be used to make the servo spin ---tmd 2017
-    		//We need to set the angle correctly so it stops the balls.
-    		twister.setAngle(70);
+    	boolean ballPickUp = OI.schtick.getRawButton(3);
+    	double pickupspeed = (0.5);
+    	if (ballPickUp == true) {
+    		pickup.set(pickupspeed);
     	} else {
-    		//Sets servo to 0 if button is not pressed ---tmd 2017
-    		twister.setAngle(0);
-    	}
-    	double throttleshooter = (OI.schtick.getZ());
-    	boolean shoot = OI.stick.getRawButton(3);
-    	double flywheelspeed = 1.0;
-    	//if loop for the shooting part of the shooter! ---tmd 2017
-    	if (shoot == true) {
-    		flywheel.set(flywheelspeed * throttleshooter);
-    	} else {
-    		flywheel.set(0);
+    		pickup.set(0);
     	}
     }
 

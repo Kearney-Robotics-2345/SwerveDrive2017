@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-
+import org.usfirst.frc.team2345.robot.commands.BallPickup;
 import org.usfirst.frc.team2345.robot.commands.Shooter;
 //import org.usfirst.frc.team2345.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2345.robot.commands.swerveDrive;
@@ -31,6 +31,7 @@ public class Robot extends IterativeRobot {
 	Command autonomousCommand;
 	Command driveCommand;
 	Command shooterCommand;
+	Command pickupCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
@@ -45,6 +46,7 @@ public class Robot extends IterativeRobot {
 		driveCommand = new swerveDrive();
 		autonomousCommand = new Autonomous();
 		shooterCommand = new Shooter();
+		pickupCommand = new BallPickup();
 		//teleopFunctions = new teleopFunctions();
 	}
 
@@ -112,6 +114,7 @@ public class Robot extends IterativeRobot {
 		}
 		driveCommand.start();
 		shooterCommand.start();
+		pickupCommand.start();
 	}
 
 	/**

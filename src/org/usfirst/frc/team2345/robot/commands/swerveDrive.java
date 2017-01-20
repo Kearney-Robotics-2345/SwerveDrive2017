@@ -51,6 +51,12 @@ public class swerveDrive extends Command {
     Encoder frontLeftEnc = RobotMap.frontLeftEnc;
     Encoder backRightEnc = RobotMap.backRightEnc;
     Encoder backLeftEnc = RobotMap.backLeftEnc;
+    
+    //Absolute encoders
+    //Encoder absfrontRightEnc = RobotMap.absfrontRightEnc;
+    //Encoder absfrontLeftEnc = RobotMap.absfrontLeftEnc;
+    //Encoder absbackRightEnc = RobotMap.absbackRightEnc;
+    //Encoder absbackLeftEnc = RobotMap.absbackLeftEnc;
  
     //Math to determine hypotenuse of frame
     static double l = 14.375;//19; //(wheelbase, inches)
@@ -64,6 +70,14 @@ public class swerveDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	/*
+    	 * double absfrontRightEncoder = (absfrontRightEnc.get());
+    	 * double absfrontLeftEncoder = (absfrontLeftEnc.get());
+    	 * double absbackRightEnc = (absbackRightEnc.get());
+    	 * double absbackLeftEnc = (absbackLeftEnc.get());
+    	 * 
+    	 * 
+    	 */
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -177,7 +191,7 @@ public class swerveDrive extends Command {
         }else{
         	dRTdr = 0;
         }
-        //Changed throttle so the + 0.1 was + 0.9 to reduce power ----tmd2017
+
         double throttle = (OI.stick.getZ() * -0.5) + 0.9;
         
         // I added a 0.7 to slow down the robot, as it was discovered that at full power, the robot would tip over.
