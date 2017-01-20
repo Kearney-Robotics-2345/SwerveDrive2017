@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+
+import org.usfirst.frc.team2345.robot.commands.Shooter;
 //import org.usfirst.frc.team2345.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2345.robot.commands.swerveDrive;
 import org.usfirst.frc.team2345.robot.subsystems.ExampleSubsystem;
@@ -28,6 +30,7 @@ public class Robot extends IterativeRobot {
 
 	Command autonomousCommand;
 	Command driveCommand;
+	Command shooterCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
@@ -41,6 +44,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Auto mode", chooser);
 		driveCommand = new swerveDrive();
 		autonomousCommand = new Autonomous();
+		shooterCommand = new Shooter();
 		//teleopFunctions = new teleopFunctions();
 	}
 
@@ -84,6 +88,7 @@ public class Robot extends IterativeRobot {
 		// schedule the autonomous command (example)
 		if (driveCommand != null) {
 			driveCommand.cancel();
+			shooterCommand.cancel();
 		}	
 		autonomousCommand.start();
 	}
@@ -102,11 +107,11 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		driveCommand = new swerveDrive();
 		if (autonomousCommand != null){
 			autonomousCommand.cancel();
 		}
 		driveCommand.start();
+		shooterCommand.start();
 	}
 
 	/**

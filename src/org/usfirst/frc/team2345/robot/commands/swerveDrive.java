@@ -178,7 +178,7 @@ public class swerveDrive extends Command {
         	dRTdr = 0;
         }
         //Changed throttle so the + 0.1 was + 0.9 to reduce power ----tmd2017
-        double throttle = (OI.stick.getZ() * -0.5) + 0.1;
+        double throttle = (OI.stick.getZ() * -0.5) + 0.9;
         
         // I added a 0.7 to slow down the robot, as it was discovered that at full power, the robot would tip over.
         frontLeftDrive.set(wheelSpeedTwo * 0.7 * throttle); 
@@ -229,6 +229,8 @@ public class swerveDrive extends Command {
         SmartDashboard.putNumber("dLTC", (double) dLTC);
         SmartDashboard.putNumber("dRTC", (double) dRTC);
 
+        //This line of code directly below caused the code to take values from being enabled and hold them
+        //I commented it out so that it would not trigger protected void end ----tmd 2017
         //commandStatus = true;
     }
 

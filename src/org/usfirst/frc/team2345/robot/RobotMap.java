@@ -25,11 +25,13 @@ public class RobotMap {
 	public static CANTalon frontRightDrive = new CANTalon(1);
 	public static CANTalon frontLeftDrive = new CANTalon(0);
 	public static CANTalon backLeftDrive = new CANTalon(2);
+	public static CANTalon flywheel = new CANTalon(4);
 
 	public static VictorSP frontLeftTurn = new VictorSP(0);
 	public static VictorSP backLeftTurn = new VictorSP(4);
 	public static VictorSP frontRightTurn = new VictorSP(2);
 	public static VictorSP backRightTurn = new VictorSP(6);
+	//public static VictorSP flywheel2 = new VictorSP(8);
 
 	public static Encoder frontLeftEnc = new Encoder(0, 1);
 	public static Encoder frontRightEnc = new Encoder(2, 3);
