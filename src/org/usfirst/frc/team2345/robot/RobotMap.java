@@ -2,7 +2,7 @@ package org.usfirst.frc.team2345.robot;
 //Help me
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.VictorSP;
-
+import edu.wpi.first.wpilibj.AnalogInput;
 import com.ctre.CANTalon;
 
 /**
@@ -39,8 +39,8 @@ public class RobotMap {
 	public static Encoder backRightEnc = new Encoder(6, 7);
 	
 	//Absolute encoder code added ---tmd2017
-	//public static Encoder absfrontLeftEnc = new Encoder (,);
-	//public static Encoder absfrontRightEnc = new Encoder (,);
-	//public static Encoder absbackLeftEnc = new Encoder (,);
-	//public static Encoder absbackRightEnc = new Encoder (,);
+	public static AnalogInput absfrontLeftEnc = new AnalogInput (0);
+	public static AnalogInput absfrontRightEnc = new AnalogInput (1);
+	public static AnalogInput absbackLeftEnc = new AnalogInput (2);
+	public static AnalogInput absbackRightEnc = new AnalogInput (3);
 }

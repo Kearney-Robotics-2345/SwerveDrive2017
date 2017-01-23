@@ -10,10 +10,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team2345.robot.commands.BallPickup;
 import org.usfirst.frc.team2345.robot.commands.Shooter;
 //import org.usfirst.frc.team2345.robot.commands.ExampleCommand;
-import org.usfirst.frc.team2345.robot.commands.swerveDrive;
+//import org.usfirst.frc.team2345.robot.commands.swerveDrive;
 import org.usfirst.frc.team2345.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2345.robot.commands.Autonomous;
 //import org.usfirst.frc.team2345.robot.subsystems.driveSystem;
+import org.usfirst.frc.team2345.robot.commands.CopyOfswerveDrive;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -43,7 +44,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
-		driveCommand = new swerveDrive();
+		driveCommand = new CopyOfswerveDrive();
 		autonomousCommand = new Autonomous();
 		shooterCommand = new Shooter();
 		pickupCommand = new BallPickup();
