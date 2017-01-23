@@ -94,12 +94,17 @@ public class CopyOfswerveDrive extends Command {
     	absfrontRightEnc.setAccumulatorInitialValue(0);
     	absfrontLeftEnc.setAccumulatorInitialValue(0);
     	absbackRightEnc.setAccumulatorInitialValue(0);
-    	absbackRightEnc.setAccumulatorInitialValue(0);
+    	absbackLeftEnc.setAccumulatorInitialValue(0);
+    	
+    	absfrontRightEnc.setAccumulatorCenter(512);
+    	absfrontLeftEnc.setAccumulatorCenter(512);
+    	absbackRightEnc.setAccumulatorCenter(512);
+    	absbackLeftEnc.setAccumulatorCenter(512);
     	
     	double absfrontRightEncoder = (absfrontRightEnc.getAccumulatorValue() / mult);
     	double absfrontLeftEncoder = (absfrontLeftEnc.getAccumulatorValue() / mult);
-    	double absbackRightEncoder = (absfrontRightEnc.getAccumulatorValue() / mult);
-    	double absbackLeftEncoder = (absfrontRightEnc.getAccumulatorValue() / mult);
+    	double absbackRightEncoder = (absbackRightEnc.getAccumulatorValue() / mult);
+    	double absbackLeftEncoder = (absbackRightEnc.getAccumulatorValue() / mult);
     
     	//fixes the problem of negative ticks on the encoder converting to inverted degrees(-1* translates to 359* opposed to -1* before)
     	double uRE = (absfrontRightEncoder < 0) ? 360 - Math.abs(absfrontRightEncoder % 360) : absfrontRightEncoder % 360;
