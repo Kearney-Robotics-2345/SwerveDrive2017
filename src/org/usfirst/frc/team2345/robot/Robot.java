@@ -6,15 +6,15 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import org.usfirst.frc.team2345.robot.commands.BallPickup;
 import org.usfirst.frc.team2345.robot.commands.Shooter;
 //import org.usfirst.frc.team2345.robot.commands.ExampleCommand;
 //import org.usfirst.frc.team2345.robot.commands.swerveDrive;
-import org.usfirst.frc.team2345.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2345.robot.commands.Autonomous;
 //import org.usfirst.frc.team2345.robot.subsystems.driveSystem;
 import org.usfirst.frc.team2345.robot.commands.CopyOfswerveDrive;
+import org.usfirst.frc.team2345.robot.subsystems.PIDShooter;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,7 +25,7 @@ import org.usfirst.frc.team2345.robot.commands.CopyOfswerveDrive;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static final PIDSubsystem PIDShooter = new PIDShooter();
 	//public static final driveSystem driveSystem = new org.usfirst.frc.team2345.robot.subsystems.driveSystem();
 	public static OI oi;
 

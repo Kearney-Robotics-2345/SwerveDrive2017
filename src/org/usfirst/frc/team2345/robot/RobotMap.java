@@ -43,4 +43,6 @@ public class RobotMap {
 	public static AnalogInput absfrontRightEnc = new AnalogInput (1);
 	public static AnalogInput absbackLeftEnc = new AnalogInput (2);
 	public static AnalogInput absbackRightEnc = new AnalogInput (3);
+	
+	public static AnalogInput shooterPID = new AnalogInput (4);
 }
