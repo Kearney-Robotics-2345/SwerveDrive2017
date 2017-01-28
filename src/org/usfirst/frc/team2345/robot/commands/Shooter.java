@@ -25,7 +25,7 @@ public class Shooter extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
+    	/*
     	boolean settwister = OI.stick.getRawButton(1);
     	
     	if (settwister == true) {
@@ -35,7 +35,7 @@ public class Shooter extends Command {
     	} else {
     		//Sets servo to 0 if button is not pressed ---tmd 2017
     		twister.setAngle(0);
-    	}
+    	}*/
     	double throttleshooter = (OI.schtick.getZ());
     	boolean shoot = OI.stick.getRawButton(3);
     	double flywheelspeed = 1.0;

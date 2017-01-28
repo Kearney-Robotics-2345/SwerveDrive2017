@@ -21,12 +21,14 @@ public class PIDShooter extends PIDSubsystem {
         // enable() - Enables the PID controller.
     	super("PIDShooter", 1.0, 0.0, 0.0);
     	setAbsoluteTolerance(0.2);
+    	getPIDController().setContinuous(true);
     	LiveWindow.addActuator("PIDShooter", "PIDSubsystem Controller", getPIDController());
     }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	
     }
 
     protected double returnPIDInput() {
