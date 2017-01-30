@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.livewindow.*;
  */
 public class PIDShooter extends PIDSubsystem {
 	VictorSP flywheel = RobotMap.flywheel;
-	AnalogInput shooterPID = RobotMap.shooterPID;
+	/*AnalogInput shooterPID = RobotMap.shooterPID;*/
 	
     // Initialize your subsystem here
     public PIDShooter() {
@@ -35,7 +35,7 @@ public class PIDShooter extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-        return shooterPID.getAverageVoltage();
+        return 0.001;
     }
 
     protected void usePIDOutput(double output) {

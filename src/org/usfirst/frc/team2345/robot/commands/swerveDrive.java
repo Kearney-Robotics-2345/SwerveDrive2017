@@ -70,14 +70,7 @@ public class swerveDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	/*
-    	 * double absfrontRightEncoder = (absfrontRightEnc.get());
-    	 * double absfrontLeftEncoder = (absfrontLeftEnc.get());
-    	 * double absbackRightEnc = (absbackRightEnc.get());
-    	 * double absbackLeftEnc = (absbackLeftEnc.get());
-    	 * 
-    	 * 
-    	 */
+
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -6,15 +6,15 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import org.usfirst.frc.team2345.robot.commands.BallPickup;
-import org.usfirst.frc.team2345.robot.commands.Shooter;
+//import edu.wpi.first.wpilibj.command.PIDSubsystem;
+//import org.usfirst.frc.team2345.robot.commands.BallPickup;
+//import org.usfirst.frc.team2345.robot.commands.Shooter;
 //import org.usfirst.frc.team2345.robot.commands.ExampleCommand;
-//import org.usfirst.frc.team2345.robot.commands.swerveDrive;
+import org.usfirst.frc.team2345.robot.commands.swerveDrive;
 import org.usfirst.frc.team2345.robot.commands.Autonomous;
 //import org.usfirst.frc.team2345.robot.subsystems.driveSystem;
-import org.usfirst.frc.team2345.robot.commands.CopyOfswerveDrive;
-import org.usfirst.frc.team2345.robot.subsystems.PIDShooter;
+//import org.usfirst.frc.team2345.robot.commands.CopyOfswerveDrive;
+//import org.usfirst.frc.team2345.robot.subsystems.PIDShooter;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,14 +25,14 @@ import org.usfirst.frc.team2345.robot.subsystems.PIDShooter;
  */
 public class Robot extends IterativeRobot {
 
-	public static final PIDSubsystem PIDShooter = new PIDShooter();
+	//public static final PIDSubsystem PIDShooter = new PIDShooter();
 	//public static final driveSystem driveSystem = new org.usfirst.frc.team2345.robot.subsystems.driveSystem();
 	public static OI oi;
 
 	Command autonomousCommand;
 	Command driveCommand;
-	Command shooterCommand;
-	Command pickupCommand;
+	//Command shooterCommand;
+	//Command pickupCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
@@ -44,10 +44,10 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
-		driveCommand = new CopyOfswerveDrive();
+		driveCommand = new swerveDrive();
 		autonomousCommand = new Autonomous();
-		shooterCommand = new Shooter();
-		pickupCommand = new BallPickup();
+		//shooterCommand = new Shooter();
+		//pickupCommand = new BallPickup();
 		//teleopFunctions = new teleopFunctions();
 	}
 
@@ -91,7 +91,7 @@ public class Robot extends IterativeRobot {
 		// schedule the autonomous command (example)
 		if (driveCommand != null) {
 			driveCommand.cancel();
-			shooterCommand.cancel();
+			//shooterCommand.cancel();
 		}	
 		autonomousCommand.start();
 	}
@@ -114,8 +114,8 @@ public class Robot extends IterativeRobot {
 			autonomousCommand.cancel();
 		}
 		driveCommand.start();
-		shooterCommand.start();
-		pickupCommand.start();
+		//shooterCommand.start();
+		//pickupCommand.start();
 	}
 
 	/**
