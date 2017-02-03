@@ -7,8 +7,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.command.PIDSubsystem;
-//import org.usfirst.frc.team2345.robot.commands.BallPickup;
-//import org.usfirst.frc.team2345.robot.commands.Shooter;
+import org.usfirst.frc.team2345.robot.commands.BallPickup;
+import org.usfirst.frc.team2345.robot.commands.Shooter;
 //import org.usfirst.frc.team2345.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2345.robot.commands.swerveDrive;
 import org.usfirst.frc.team2345.robot.commands.Autonomous;
@@ -31,8 +31,8 @@ public class Robot extends IterativeRobot {
 
 	Command autonomousCommand;
 	Command driveCommand;
-	//Command shooterCommand;
-	//Command pickupCommand;
+	Command shooterCommand;
+	Command pickupCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
@@ -46,8 +46,8 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Auto mode", chooser);
 		driveCommand = new swerveDrive();
 		autonomousCommand = new Autonomous();
-		//shooterCommand = new Shooter();
-		//pickupCommand = new BallPickup();
+		shooterCommand = new Shooter();
+		pickupCommand = new BallPickup();
 		//teleopFunctions = new teleopFunctions();
 	}
 
@@ -114,8 +114,8 @@ public class Robot extends IterativeRobot {
 			autonomousCommand.cancel();
 		}
 		driveCommand.start();
-		//shooterCommand.start();
-		//pickupCommand.start();
+		shooterCommand.start();
+		pickupCommand.start();
 	}
 
 	/**
