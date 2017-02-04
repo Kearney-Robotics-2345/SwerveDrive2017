@@ -12,7 +12,7 @@ import org.usfirst.frc.team2345.robot.*;
 public class Shooter extends Command {
 	Joystick stick = OI.stick;
 	Joystick schtick = OI.schtick;
-	Servo twister = new Servo(1);
+	//Servo twister = new Servo(1);
 	VictorSP flywheel = RobotMap.flywheel;
     public Shooter() {
         // Use requires() here to declare subsystem dependencies
@@ -37,7 +37,7 @@ public class Shooter extends Command {
     		twister.setAngle(0);
     	}*/
     	double throttleshooter = (OI.schtick.getZ());
-    	boolean shoot = OI.stick.getRawButton(3);
+    	boolean shoot = OI.stick.getRawButton(1);
     	double flywheelspeed = 1.0;
     	//if loop for the shooting part of the shooter! ---tmd 2017
     	if (shoot == true) {

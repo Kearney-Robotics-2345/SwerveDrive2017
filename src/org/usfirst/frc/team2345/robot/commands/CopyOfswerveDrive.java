@@ -29,7 +29,7 @@ public class CopyOfswerveDrive extends Command {
     double dRTDir;
     double dLTDir;
     // multiplier ratio of encoder ticks to degrees
-    double mult = 0.35;
+    double mult = 360;
     boolean commandStatus = false;
 
     //enabling all the encoders
@@ -91,21 +91,12 @@ public class CopyOfswerveDrive extends Command {
     	//double backLeftEncoder = (backLeftEnc.get() / mult);
     	
     	//Absolute Encoder code (Actually Analog)
-    	/*absfrontRightEnc.setAccumulatorInitialValue(0);
-    	absfrontLeftEnc.setAccumulatorInitialValue(0);
-    	absbackRightEnc.setAccumulatorInitialValue(0);
-    	absbackLeftEnc.setAccumulatorInitialValue(0);
     	
-    	absfrontRightEnc.setAccumulatorCenter(512);
-    	absfrontLeftEnc.setAccumulatorCenter(512);
-    	absbackRightEnc.setAccumulatorCenter(512);
-    	absbackLeftEnc.setAccumulatorCenter(512);*/
-    	
-    	double absfrontRightEncoder = (absfrontRightEnc.getVoltage() / mult);
-    	double absfrontLeftEncoder = (absfrontLeftEnc.getVoltage() / mult);
-    	double absbackRightEncoder = (absbackRightEnc.getVoltage() / mult);
-    	double absbackLeftEncoder = (absbackRightEnc.getVoltage() / mult);
-    
+    	double absfrontRightEncoder = ((absfrontRightEnc.getVoltage() / 5.0) * mult);
+    	double absfrontLeftEncoder = ((absfrontLeftEnc.getVoltage() / 5.0) * mult);
+    	double absbackRightEncoder = ((absbackRightEnc.getVoltage() / 5.0) * mult);
+    	double absbackLeftEncoder = ((absbackRightEnc.getVoltage() / 5.0) * mult);
+ 
     	//fixes the problem of negative ticks on the encoder converting to inverted degrees(-1* translates to 359* opposed to -1* before)
     	double uRE = (absfrontRightEncoder < 0) ? 360 - Math.abs(absfrontRightEncoder % 360) : absfrontRightEncoder % 360;
     	double uLE = (absfrontLeftEncoder < 0) ? 360 - Math.abs(absfrontLeftEncoder % 360) : absfrontLeftEncoder % 360; //frontLeftEncoder%= 360;
@@ -217,10 +208,10 @@ public class CopyOfswerveDrive extends Command {
         backRightDrive.set(wheelSpeedFour * 0.7 * throttle);
         
         // This displays inputs and outputs on the Dashboard for troubleshooting purposes
-        SmartDashboard.putNumber("uL", (double) absfrontLeftEnc.getAccumulatorValue());
-        SmartDashboard.putNumber("uR", (double) absfrontRightEnc.getAccumulatorValue());
-        SmartDashboard.putNumber("dL", (double) absbackLeftEnc.getAccumulatorValue());
-        SmartDashboard.putNumber("dR", (double) absbackRightEnc.getAccumulatorValue());
+        SmartDashboard.putNumber("uL", (double) absfrontLeftEnc.getVoltage());
+        SmartDashboard.putNumber("uR", (double) absfrontRightEnc.getVoltage());
+        SmartDashboard.putNumber("dL", (double) absbackLeftEnc.getVoltage());
+        SmartDashboard.putNumber("dR", (double) absbackRightEnc.getVoltage());
         SmartDashboard.putNumber("wS1", (double) wheelSpeedOne);
         SmartDashboard.putNumber("wS2", (double) wheelSpeedTwo);
         SmartDashboard.putNumber("wS3", (double) wheelSpeedThree);

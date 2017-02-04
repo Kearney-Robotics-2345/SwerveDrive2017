@@ -31,7 +31,7 @@ public class RobotMap {
 	public static VictorSP frontRightTurn = new VictorSP(2);
 	public static VictorSP backRightTurn = new VictorSP(6);
 	public static VictorSP flywheel = new VictorSP(8);
-	public static VictorSP pickup = new VictorSP(1);
+	//public static VictorSP climber = new VictorSP(8);
 
 	public static Encoder frontLeftEnc = new Encoder(0, 1);
 	public static Encoder frontRightEnc = new Encoder(2, 3);
@@ -39,10 +39,9 @@ public class RobotMap {
 	public static Encoder backRightEnc = new Encoder(6, 7);
 	
 	//Absolute encoder code added ---tmd2017
-	public static AnalogInput absfrontLeftEnc = new AnalogInput (3);
-	public static AnalogInput absfrontRightEnc = new AnalogInput (2);
-	public static AnalogInput absbackLeftEnc = new AnalogInput (1);
-	public static AnalogInput absbackRightEnc = new AnalogInput (0);
+	public static AnalogInput absfrontLeftEnc = new AnalogInput (0);
+	public static AnalogInput absfrontRightEnc = new AnalogInput (1);
+	public static AnalogInput absbackLeftEnc = new AnalogInput (2);
+	public static AnalogInput absbackRightEnc = new AnalogInput (3);
 	
-	//public static AnalogInput shooterPID = new AnalogInput (0);
 }

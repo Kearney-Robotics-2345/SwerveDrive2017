@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.livewindow.*;
  *
  */
 public class PIDShooter extends PIDSubsystem {
-	VictorSP flywheel = RobotMap.flywheel;
+	//VictorSP flywheel = RobotMap.flywheel;
 	/*AnalogInput shooterPID = RobotMap.shooterPID;*/
 	
     // Initialize your subsystem here
@@ -41,6 +41,6 @@ public class PIDShooter extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
-    	flywheel.pidWrite(output);
+    	//flywheel.pidWrite(output);
     }
 }
