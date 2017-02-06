@@ -2,7 +2,7 @@ package org.usfirst.frc.team2345.robot.commands;
 
 import org.usfirst.frc.team2345.robot.OI;
 import org.usfirst.frc.team2345.robot.RobotMap;
-
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Command;
@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Climber extends Command {
 	Joystick stick = OI.stick;
 	Joystick schtick = OI.schtick;
-	//VictorSP climber = RobotMap.climber;
+	VictorSP climber = RobotMap.climber;
 
     public Climber() {
         // Use requires() here to declare subsystem dependencies
@@ -30,11 +30,18 @@ public class Climber extends Command {
     	boolean climbdown = OI.stick.getRawButton(2);
     	//if loop for the shooting part of the shooter! ---tmd 2017
     	if (climb == true) {
-    		//climber.set(1.0);
+    		int n = 0;
+    		int speed = 0;
+    		while (n < 10) {
+    			speed = (int) (speed + 0.1);
+    			climber.set(speed);
+    			Timer.delay(0.2);
+    			n++;
+    		}
     	} else if (climbdown == true) {
-    		//climber.set(-1.0);
+    		climber.set(0.5);
     	} else {
-    		//climber.set(0.0);
+    		climber.set(0);
     	}
     }
 
