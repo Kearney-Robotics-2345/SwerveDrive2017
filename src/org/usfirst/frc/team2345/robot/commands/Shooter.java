@@ -35,7 +35,7 @@ public class Shooter extends Command {
     		//Sets servo to 0 if button is not pressed ---tmd 2017
     		twister.setAngle(0);
     	}*/
-    	double throttleshooter = (OI.schtick.getZ() * - 0.5);
+    	double throttleshooter = ((OI.schtick.getZ() * -0.5) + 0.9);
     	boolean shoot = OI.stick.getRawButton(1);
     	double flywheelspeed = 1.0;
     	//if loop for the shooting part of the shooter! ---tmd 2017

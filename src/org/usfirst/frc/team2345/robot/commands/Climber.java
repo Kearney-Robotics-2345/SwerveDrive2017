@@ -32,12 +32,13 @@ public class Climber extends Command {
     	if (climb == true) {
     		int n = 0;
     		int speed = 0;
-    		while (n < 10) {
+    		/*while (n < 10) {
     			speed = (int) (speed + 0.1);
     			climber.set(speed);
     			Timer.delay(0.2);
     			n++;
-    		}
+    		}*/
+    		climber.set(1.0);
     	} else if (climbdown == true) {
     		climber.set(0.5);
     	} else {

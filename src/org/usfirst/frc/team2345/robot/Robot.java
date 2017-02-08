@@ -91,7 +91,6 @@ public class Robot extends IterativeRobot {
 		// schedule the autonomous command (example)
 		if (driveCommand != null) {
 			driveCommand.cancel();
-			shooterCommand.cancel();
 		}	
 		autonomousCommand.start();
 	}

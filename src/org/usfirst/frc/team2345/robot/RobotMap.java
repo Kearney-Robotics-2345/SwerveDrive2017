@@ -3,6 +3,7 @@ package org.usfirst.frc.team2345.robot;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.AnalogInput;
+//import edu.wpi.first.wpilibj.Ultrasonic;
 import com.ctre.CANTalon;
 
 /**
@@ -30,8 +31,8 @@ public class RobotMap {
 	public static VictorSP backLeftTurn = new VictorSP(4);
 	public static VictorSP frontRightTurn = new VictorSP(2);
 	public static VictorSP backRightTurn = new VictorSP(6);
-	public static VictorSP flywheel = new VictorSP(1);
-	public static VictorSP climber = new VictorSP(8);
+	public static VictorSP flywheel = new VictorSP(8);
+	public static VictorSP climber = new VictorSP(9);
 
 	public static Encoder frontLeftEnc = new Encoder(0, 1);
 	public static Encoder frontRightEnc = new Encoder(2, 3);
@@ -44,4 +45,6 @@ public class RobotMap {
 	public static AnalogInput absbackLeftEnc = new AnalogInput (2);
 	public static AnalogInput absbackRightEnc = new AnalogInput (3);
 	
+	//Gear Ultrasonic sensor Definition ---tmd2017
+	//public static Ultrasonic gear = new Ultrasonic (2, 3);
 }
