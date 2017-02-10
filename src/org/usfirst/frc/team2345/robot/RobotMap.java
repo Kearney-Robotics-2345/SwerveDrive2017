@@ -32,7 +32,7 @@ public class RobotMap {
 	public static VictorSP frontRightTurn = new VictorSP(2);
 	public static VictorSP backRightTurn = new VictorSP(6);
 	public static VictorSP flywheel = new VictorSP(8);
-	public static VictorSP climber = new VictorSP(9);
+	public static VictorSP climber = new VictorSP(1);
 
 	public static Encoder frontLeftEnc = new Encoder(0, 1);
 	public static Encoder frontRightEnc = new Encoder(2, 3);

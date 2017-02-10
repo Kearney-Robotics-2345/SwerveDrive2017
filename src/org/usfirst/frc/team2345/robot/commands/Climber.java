@@ -28,16 +28,16 @@ public class Climber extends Command {
     protected void execute() {
     	boolean climb = OI.stick.getRawButton(3);
     	boolean climbdown = OI.stick.getRawButton(2);
-    	//if loop for the shooting part of the shooter! ---tmd 2017
+    	//Climber if loop that will change the speed to wheel over 3ish seconds ---tmd 2017
     	if (climb == true) {
     		int n = 0;
     		int speed = 0;
-    		/*while (n < 10) {
+    		while (n < 10) { //for loop increments the speed of the wheel
     			speed = (int) (speed + 0.1);
     			climber.set(speed);
     			Timer.delay(0.2);
     			n++;
-    		}*/
+    		}
     		climber.set(1.0);
     	} else if (climbdown == true) {
     		climber.set(0.5);

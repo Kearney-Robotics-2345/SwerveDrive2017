@@ -8,12 +8,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team2345.robot.commands.Climber;
+import org.usfirst.frc.team2345.robot.commands.AbsoluteSwerve;
 import org.usfirst.frc.team2345.robot.commands.Shooter;
 //import org.usfirst.frc.team2345.robot.commands.ExampleCommand;
-import org.usfirst.frc.team2345.robot.commands.swerveDrive;
+//import org.usfirst.frc.team2345.robot.commands.swerveDrive;
 import org.usfirst.frc.team2345.robot.commands.Autonomous;
 //import org.usfirst.frc.team2345.robot.subsystems.driveSystem;
-//import org.usfirst.frc.team2345.robot.commands.CopyOfswerveDrive;
 //import org.usfirst.frc.team2345.robot.subsystems.PIDShooter;
 
 /**
@@ -44,7 +44,8 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
-		driveCommand = new swerveDrive();
+		//driveCommand = new swerveDrive();
+		driveCommand = new AbsoluteSwerve();
 		autonomousCommand = new Autonomous();
 		shooterCommand = new Shooter();
 		climbCommand = new Climber();
